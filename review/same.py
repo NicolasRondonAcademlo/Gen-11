@@ -1,3 +1,5 @@
+
+
 scores = [
   {
     "name": "Alexandra",
@@ -41,6 +43,3 @@ values = {
     "b": 2,
     "c":3
 }
-print(values.keys())
-print(values.values())
-print(values.items())
