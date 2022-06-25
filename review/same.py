@@ -26,3 +26,21 @@ scores = [
 ]
 # {'Alexandra': 11243, 'Camilo': 8795, 'Felipe': 5456, 'Roberto': 11098}
 
+
+result = {}
+for i in scores:
+    if i["name"] in result.keys():
+        result[i["name"]] += i["score"]
+    else:
+        result[i["name"]]=i["score"]
+
+print(result)
+
+values = {
+    "a": 1,
+    "b": 2,
+    "c":3
+}
+print(values.keys())
+print(values.values())
+print(values.items())
