@@ -29,11 +29,10 @@ while True:
 print(f"Ingresa el mensage a {mode}")
 message = input("> ").upper()
 
-translated = ""
 
 for symbol in message:
     if symbol in SYMBOLS:
-        num = SYMBOLS.find(symbol)
+        num = SYMBOLS.find(symbol) 
         if mode == "encrypt":
             num = num + key
         elif mode == "decrypt":
@@ -50,4 +49,3 @@ for symbol in message:
 
 print(translated)
         
-
