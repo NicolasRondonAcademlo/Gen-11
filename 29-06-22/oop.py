@@ -28,15 +28,22 @@ roberto = Person("Roberto", 85, 8897779)
 # Trabajo
 # Vehiculo
 
+
 class Empresa:
     country = "Colombia"
 
-    def __init__(self, name:str, addres:str) -> None:
+    def __init__(self, name:str, addres:str, ) -> None:
         self.name = name
         self.addres = addres
-
-    def do_contract(self, employe):
+    
+    def do_contract(self, employe,azul) -> str:
+        
         print(f"Se contracto a {employe} en la empresa {self.name}")
+        return self.name
 
 academlo = Empresa("academlo", "calle muy lejos")
-academlo.do_contract("Luis")
+
+crehana = Empresa("crehana", "calle muy lejos")
+
+print(crehana.__dict__)
+print(dir(crehana))
