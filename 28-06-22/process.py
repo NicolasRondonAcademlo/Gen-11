@@ -6,3 +6,7 @@ with open("datacamp_catalog.csv", encoding="utf-8") as csv_file:
         print(i["CPNT_ID"], i["CPNT_TITLE"])
         print()
 # context
+# split
+python = []
+r = []
+data =[]
