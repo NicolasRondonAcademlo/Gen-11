@@ -16,7 +16,7 @@ class Facturing:
 
 
 primer_factura = Facturing(False, 100,"user-54144")
-final =primer_factura.__apply_discount()
+final =primer_factura.show_price()
 print(final)
 
 
