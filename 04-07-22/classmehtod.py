@@ -13,9 +13,7 @@ class Student:
     def show(self):
         return f"La edad de {self.name} es {self.age}"
 
-
-jessa = Student("Jessa", 20)
-print(jessa.show())
-
 joy = Student.calculate_age("Joy", 1995)
 print(joy)
+
+
