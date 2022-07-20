@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ("title",)
+        fields = "__all__"
         model = Note
 
 class NoteSerializerCreate(serializers.ModelSerializer):

@@ -4,6 +4,7 @@ from rest_framework import generics
 from .models import Note
 from .serializers import NoteSerializer, NoteSerializerCreate
 from rest_framework.response import Response
+from rest_framework import viewsets
 
 class NoteListAPiView(generics.ListAPIView):
     queryset = Note.objects.all()
@@ -28,3 +29,11 @@ class NoteRetrieveDestroyAPIView(generics.RetrieveDestroyAPIView):
 class NoteRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Note.objects.all()
     serializer_class =  NoteSerializer
+
+
+# Vamos a crear el modelo de una persona y a hacer los endpoints necesarios
+# para tener un CRUD de Personas
+
+class NoteViewSet(viewsets.ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
