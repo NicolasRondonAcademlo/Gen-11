@@ -11,6 +11,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+
 def hello_world(reqest):
     hello = "Hola Gen 11"
     html = f"<html><h1>{hello}</h1></html>"
@@ -58,6 +59,7 @@ def hello_wolrd_rest(requests):
 from rest_framework.views import APIView
 class ListFruits(APIView):
     def get(self, request):
+        print(request.query_params)
         try:
             food = Food.objects.all()
             values_food = food.values()
@@ -76,4 +78,3 @@ class ListFruits(APIView):
         print(request.data)
         return Response({"data: "})
 
-   
