@@ -75,3 +75,13 @@ class UserViewSet(viewsets.ModelViewSet):
     
         return Response({"data":serializer.data})
 
+
+# Vamos a crear acciones para ver las notas por cada estado
+# Vamos a crear una accion que me permita ver la ultima nota agregada por un usuario
+# vamos a crear una accione que me regrese tres notas aleatorias
+# vamos a crear una accion que regrese las notas pero donde el titulo y descripcion
+# las vocales sean remplazadas por a=1 e=2 i=3 o=4 u=5
+# Vamos a crear una accion para ver la primer nota agregada por un usuario
+# Vamos a crear una accion para devolver todos los usuarios activos
+# vamos a crear una accion para devolver todos los usuarios inactivos
+# vamos a crear una accion para devolver las notas de un usuario
