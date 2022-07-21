@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 # Create your views here.
 from .models import Note
-from .serializers import NoteSerializer, NoteSerializerCreate,UserSerializer
+from .serializers import NoteSerializer, NoteSerializerCreate,UserSerializer, NoteSerializerCustom
 from rest_framework.response import Response
 from rest_framework import viewsets
 from django.contrib.auth.models import User
@@ -50,6 +50,22 @@ class NoteViewSet(viewsets.ModelViewSet):
         data = serializer(notes_complete, many=True)
         return Response({"data": data.data})
 
+    @action(detail=False)
+    def my_notes_convert(self, request):
+        notes =self.get_queryset()
+        for note in notes:
+            note.title = note.title.upper()
+            note.description = note.description.upper()
+        serializer = self.get_serializer_class()
+        data = serializer(notes, many=True)
+        return Response({"data": data.data})
+
+    @action(detail=False)
+    def my_notes_convert_custom(self, request):
+        notes =self.get_queryset()
+        serializer = NoteSerializerCustom
+        data = serializer(notes, many=True)
+        return Response({"data": data.data})
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -76,11 +92,13 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response({"data":serializer.data})
 
 
+
 # Vamos a crear acciones para ver las notas por cada estado
 # Vamos a crear una accion que me permita ver la ultima nota agregada por un usuario
 # vamos a crear una accione que me regrese tres notas aleatorias
 # vamos a crear una accion que regrese las notas pero donde el titulo y descripcion
 # las vocales sean remplazadas por a=1 e=2 i=3 o=4 u=5
+# Hola -> H4l1
 # Vamos a crear una accion para ver la primer nota agregada por un usuario
 # Vamos a crear una accion para devolver todos los usuarios activos
 # vamos a crear una accion para devolver todos los usuarios inactivos

@@ -7,6 +7,15 @@ class NoteSerializer(serializers.ModelSerializer):
         model = Note
 
 
+class NoteSerializerCustom(serializers.ModelSerializer):
+    title_custom = serializers.SerializerMethodField()
+    class Meta:
+        fields = "__all__"
+        model = Note
+
+    def get_title_custom(self, obj):
+        return obj.title.upper()
+
 class NoteSerializerCreate(serializers.ModelSerializer):
     class Meta:
         fields = "__all__"
