@@ -1,5 +1,5 @@
 from django.db import models
-import enum# Create your models here.
+from django.contrib.auth.models import  User
 class Note(models.Model):
     # La izquieda base de datos - derecha usuario
     status_choices = [
@@ -11,3 +11,4 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     status = models.CharField(choices=status_choices,max_length=2)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
