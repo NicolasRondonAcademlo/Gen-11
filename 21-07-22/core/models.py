@@ -27,6 +27,11 @@ class CustomUser(AbstractUser):
     cell_phone = models.CharField(max_length=12)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
-
     objects = CustomUserManager()
 
+    def print_username():
+        return
+
+
+#  Vamos a crear un modelo de usuario personalizado
+# con 6 campos extra
