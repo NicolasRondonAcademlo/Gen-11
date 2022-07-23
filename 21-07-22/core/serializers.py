@@ -21,3 +21,9 @@ class CreateUserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ("email", "password", "first_name", "cell_phone")
         
+
+class MinimunUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ("email", "first_name", "cell_phone")
+        

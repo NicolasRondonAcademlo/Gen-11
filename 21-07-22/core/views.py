@@ -4,7 +4,7 @@ from .models import CustomUser
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, AllowAny
 # Create your views here.
-
+from rest_framework.decorators import action
 class CustomUserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
