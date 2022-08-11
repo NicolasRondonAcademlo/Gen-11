@@ -4,6 +4,7 @@ from .models import Book, BookItem, User
 from .permissions import IsLibraryUser, IsRentForAnother
 from .serializers import BookSerializer, BookItemSerializer, BookItemCreateSerializer
 from rest_framework.permissions import AllowAny
+from rest_framework import  status
 from rest_framework.response import Response
 
 class BookViewSet(viewsets.ModelViewSet):
@@ -33,6 +34,12 @@ class BookItemViewSet(viewsets.ModelViewSet):
             if self.request.user.is_staff:
                 partial = kwargs.pop('partial', False)
                 instance = self.get_object()
+                if request.data["member"]:
+                    books_items = BookItem.objects.filter(member=request.data["member"])
+                    total = books_items.count()
+                    if total >= 2:
+                        return Response({"message": " No puedes tener mas de dos libros"}, status=status.HTTP_400_BAD_REQUEST)
+                print(instance.member)
                 serializer = self.get_serializer(instance, data=request.data, partial=partial)
                 serializer.is_valid(raise_exception=True)
                 self.perform_update(serializer)
